@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe70aba2e7074048aca5de573b64a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSelectedItems:
+    m_Keys:
+    - Assets/Imports.meta
+    - Assets/Imports/TextMesh Pro.meta
+    - Assets/Imports/TextMesh Pro/Documentation.meta
+    - Assets/Imports/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf
+    - Assets/Imports/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+    - Assets/Imports/TextMesh Pro/Fonts.meta
+    - Assets/Imports/TextMesh Pro/Fonts/LiberationSans - OFL.txt
+    - Assets/Imports/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta
+    - Assets/Imports/TextMesh Pro/Fonts/LiberationSans.ttf
+    - Assets/Imports/TextMesh Pro/Fonts/LiberationSans.ttf.meta
+    - Assets/Imports/TextMesh Pro/Resources.meta
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials.meta
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Drop Shadow.mat
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Drop Shadow.mat.meta
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Fallback.asset
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Fallback.asset.meta
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Outline.mat
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF
+      - Outline.mat.meta
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+    - Assets/Imports/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset.meta
+    - Assets/Imports/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+    - Assets/Imports/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta
+    - Assets/Imports/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+    - Assets/Imports/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta
+    - Assets/Imports/TextMesh Pro/Resources/Sprite Assets.meta
+    - Assets/Imports/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+    - Assets/Imports/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta
+    - Assets/Imports/TextMesh Pro/Resources/Style Sheets.meta
+    - Assets/Imports/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+    - Assets/Imports/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta
+    - Assets/Imports/TextMesh Pro/Resources/TMP Settings.asset
+    - Assets/Imports/TextMesh Pro/Resources/TMP Settings.asset.meta
+    - Assets/Imports/TextMesh Pro/Shaders.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Bitmap.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF SSD.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Surface.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_SDF.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Sprite.shader
+    - Assets/Imports/TextMesh Pro/Shaders/TMP_Sprite.shader.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro.cginc
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro.cginc.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro_Mobile.cginc
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro_Properties.cginc
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro_Surface.cginc
+    - Assets/Imports/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta
+    - Assets/Imports/TextMesh Pro/Sprites.meta
+    - Assets/Imports/TextMesh Pro/Sprites/EmojiOne Attribution.txt
+    - Assets/Imports/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta
+    - Assets/Imports/TextMesh Pro/Sprites/EmojiOne.json
+    - Assets/Imports/TextMesh Pro/Sprites/EmojiOne.json.meta
+    - Assets/Imports/TextMesh Pro/Sprites/EmojiOne.png
+    - Assets/Imports/TextMesh Pro/Sprites/EmojiOne.png.meta
+    - Assets/Resources.meta
+    - Assets/Resources/Art.meta
+    - Assets/Resources/Art/Backgrounds.meta
+    - Assets/Resources/Art/Backgrounds/FireBackground.png
+    - Assets/Resources/Art/Backgrounds/FireBackground.png.meta
+    - Assets/Resources/Art/Characters.meta
+    - Assets/Resources/Art/Items.meta
+    - Assets/Resources/Art/Items/Hand.anim
+    - Assets/Resources/Art/Items/Hand.anim.meta
+    - Assets/Resources/Art/Items/ShiteSheet.png
+    - Assets/Resources/Art/Items/ShiteSheet.png.meta
+    - Assets/Resources/Art/Items/ShiteSheet_0.controller
+    - Assets/Resources/Art/Items/ShiteSheet_0.controller.meta
+    - Assets/Resources/Art/UI.meta
+    - Assets/Resources/Art/UI/SpeechBubble.png
+    - Assets/Resources/Art/UI/SpeechBubble.png.meta
+    - Assets/Resources/Dialogue.meta
+    - Assets/Resources/Dialogue/Test.txt
+    - Assets/Resources/Dialogue/Test.txt.meta
+    - Assets/Scenes/2DSideScroller.unity
+    - Assets/Scenes/2DSideScroller.unity.meta
+    - Assets/Scenes/PlaceTea.unity
+    - Assets/Scenes/PlaceTea.unity.meta
+    - Assets/Scenes/TeaMaking.unity
+    - Assets/Scenes/TeaMaking.unity.meta
+    - Assets/Scenes/WaterCollection.unity
+    - Assets/Scenes/WaterCollection.unity.meta
+    - Assets/Scripts/DialogueManager.cs
+    - Assets/Scripts/DialogueManager.cs.meta
+    - Assets/Scripts/DialogueTrigger.cs
+    - Assets/Scripts/DialogueTrigger.cs.meta
+    - Assets/Scripts/DropdownScript.cs
+    - Assets/Scripts/DropletController.cs
+    - Assets/Scripts/DropletController.cs.meta
+    - Assets/Scripts/HandController.cs
+    - Assets/Scripts/HandController.cs.meta
+    - Assets/Scripts/MovementController.cs
+    - Assets/Scripts/SnapToTarget.cs
+    - Assets/Scripts/SnapToTarget.cs.meta
+    - Assets/Scripts/SparksController.cs
+    - Assets/Scripts/SparksController.cs.meta
+    - Packages/Assembly-CSharp.csproj
+    - Packages/Logs/AssetImportWorker0-prev.log
+    - Packages/Logs/AssetImportWorker0.log
+    - Packages/Logs/Packages-Update.log
+    - Packages/Logs/shadercompiler-AssetImportWorker0.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe1.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe10.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe11.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe2.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe3.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe4.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe5.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe6.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe7.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe8.log
+    - Packages/Logs/shadercompiler-UnityShaderCompiler.exe9.log
+    - Packages/Packages/manifest.json
+    - Packages/Packages/packages-lock.json
+    - Packages/ProjectSettings/AudioManager.asset
+    - Packages/ProjectSettings/ClusterInputManager.asset
+    - Packages/ProjectSettings/DynamicsManager.asset
+    - Packages/ProjectSettings/EditorBuildSettings.asset
+    - Packages/ProjectSettings/EditorSettings.asset
+    - Packages/ProjectSettings/GraphicsSettings.asset
+    - Packages/ProjectSettings/InputManager.asset
+    - Packages/ProjectSettings/NavMeshAreas.asset
+    - Packages/ProjectSettings/NetworkManager.asset
+    - Packages/ProjectSettings/PackageManagerSettings.asset
+    - Packages/ProjectSettings/Physics2DSettings.asset
+    - Packages/ProjectSettings/PresetManager.asset
+    - Packages/ProjectSettings/ProjectSettings.asset
+    - Packages/ProjectSettings/ProjectVersion.txt
+    - Packages/ProjectSettings/QualitySettings.asset
+    - Packages/ProjectSettings/SceneTemplateSettings.json
+    - Packages/ProjectSettings/TagManager.asset
+    - Packages/ProjectSettings/TimeManager.asset
+    - Packages/ProjectSettings/TimelineSettings.asset
+    - Packages/ProjectSettings/UnityConnectSettings.asset
+    - Packages/ProjectSettings/VFXManager.asset
+    - Packages/ProjectSettings/VersionControlSettings.asset
+    - Packages/ProjectSettings/XRSettings.asset
+    - Packages/Tea for the Soul.sln
+    - Packages/UserSettings/EditorUserSettings.asset
+    - Packages/UserSettings/Search.index
+    - Packages/UserSettings/Search.settings
+    - Packages/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
+    - Packages/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+    - Packages/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+    - Packages/obj/Debug/Assembly-CSharp.csprojResolveAssemblyReference.cache
+    - Packages/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+    - Packages/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+    - Packages/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+    - Packages/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+    - ProjectSettings/EditorBuildSettings.asset
+    - ProjectSettings/ProjectSettings.asset
+    - ProjectSettings/TagManager.asset
+    - 
+    m_Values: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  RevisionSummary: 
+  ChangesSearchValue: 
+  SelectedHistoryRevision: 
+  HistoryPageNumber: 0
+  TabIndex: 0

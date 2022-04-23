@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Dropdown
+  - Grabbable
+  - Sparks
+  - Steel
+  - TargetLocation
+  - DialoguePanel
+  - DialogueHeadBox
+  - DialogueTextBox
+  - DialogueBubble
+  - DialogueBubbleText
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Dropdown
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Parallax Back
+    uniqueID: 2274612901
+    locked: 0
+  - name: Parallax Middle
+    uniqueID: 3170641967
+    locked: 0
+  - name: Parallax Forward
+    uniqueID: 3066984701
+    locked: 0
+  - name: Dropdown
+    uniqueID: 220449541
+    locked: 0
+  - name: Ground
+    uniqueID: 4203872651
+    locked: 0
+  - name: Player
+    uniqueID: 2744274991
+    locked: 0
+  - name: Foreground
+    uniqueID: 855529339
+    locked: 0
+  - name: ForeShadows
+    uniqueID: 3084537457
+    locked: 0
