@@ -1571,3 +1571,33 @@ Received Import Request.
   path: Assets/Scenes/CutScenes/2IntroCutscene.unity
   artifactKey: Guid(f676877fa800a76448a0c7778bd6301f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/CutScenes/2IntroCutscene.unity using Guid(f676877fa800a76448a0c7778bd6301f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4eb6ecf75de4e7b8843a334db3bf2c27') in 0.002936 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 290.981971 seconds.
+  path: Assets/Scenes/CutScenes/2IntroCutscene.unity
+  artifactKey: Guid(f676877fa800a76448a0c7778bd6301f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/CutScenes/2IntroCutscene.unity using Guid(f676877fa800a76448a0c7778bd6301f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b69c07762c3039a518c8edc7ccc5923') in 0.003264 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 44.123295 seconds.
+  path: Assets/Prefabs/Antoine 1.prefab
+  artifactKey: Guid(18fbae143487dc74881fa3aedb8429e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Antoine 1.prefab using Guid(18fbae143487dc74881fa3aedb8429e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90ad7a6f9ff12dd5a91a38ba7c01c2e1') in 0.014929 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 507.223178 seconds.
+  path: Assets/Prefabs/Antoine.prefab
+  artifactKey: Guid(0029e507e37928546b242e923117a3e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Antoine.prefab using Guid(0029e507e37928546b242e923117a3e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '012e4d60c8d3f00cf3e10cf05baebef8') in 0.003135 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 48.087325 seconds.
+  path: Assets/Prefabs/Antoine.prefab
+  artifactKey: Guid(0029e507e37928546b242e923117a3e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Antoine.prefab using Guid(0029e507e37928546b242e923117a3e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3bb36882441c6cd7b0e8df658198c3a') in 0.010355 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 469.867406 seconds.
+  path: Assets/Prefabs/Antoine.prefab
+  artifactKey: Guid(0029e507e37928546b242e923117a3e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Antoine.prefab using Guid(0029e507e37928546b242e923117a3e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b54a9a304f710f4f84b81565e8f8eee') in 0.010763 seconds 
