@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentLine = 0;
 
-        pMove = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
+        pMove = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MovementController>();
         dialogueArea = GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<CanvasGroup>();
         bubbleArea = GameObject.FindGameObjectWithTag("DialogueBubble").GetComponent<CanvasGroup>();
         bubbleText = GameObject.FindGameObjectWithTag("DialogueBubbleText").GetComponent<TextMeshProUGUI>();
@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pMove = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
+        pMove = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MovementController>();
 
         
         /*foreach (string line in lines)

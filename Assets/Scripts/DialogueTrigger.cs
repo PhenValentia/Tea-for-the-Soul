@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     string dialogueName;
     [SerializeField]
     bool isBubble = false;
+    bool activated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,9 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && !activated)
         {
+            activated = true;
             if (isBubble)
             {
                 dM.startSpeechBubbles(dialogueName);
