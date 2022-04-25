@@ -1,3 +1,6 @@
 
 *.lock
 Temp/UnityLockfile
+Library/ArtifactDB
+Library/Search/transactions.db
+Library/SourceAssetDB
