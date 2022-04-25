@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CircleTransition.cs" />
     <Compile Include="Assets\Scripts\HandController.cs" />
     <Compile Include="Assets\Scripts\SnapToTarget.cs" />
+    <Compile Include="Assets\Scripts\MainMeun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro.cginc" />
