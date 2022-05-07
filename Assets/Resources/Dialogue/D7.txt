@@ -1,0 +1,107 @@
+[e][Lapis]All done!
+[e][Lapis]Now, the only thing left is for Antoine to come.
+[Knock][Lapis]Oh! That must be him!
+[DoorOpen][Antoine][24]Good afternoon miss! I came just as you told me!
+[e][Antoine]*sniff, sniff* Oh, that’s a great aroma!
+[e][Antoine]I guess you weren’t kidding when you said you helped people through tea.
+[e][Lapis]Oh, yeah! Enter, have a seat.
+[e][Antoine]You have a lovely home!
+[e][Lapis]Thank you!
+[e][Antoine]I must say, you really have gone all in with your theming!
+[e][Lapis]I guess I gotta attract customers, hahahaha
+[e][Antoine]And this tea… it’s splendid! What’s the recipe?
+[e][Lapis]It’s just a secret custom blend
+[Laugh][Antoine]Just a custom blend, hahahaha! You say it like it’s the norm for ya!
+[e][Lapis]Well, I make tea to help people sort their problems.
+[e][Antoine]Huh, really? It is good tea, but I’m not sure if it can…
+[e][Lapis]I assure you it can and it will.
+[e][Lapis]For example, Antoine, remember those cards you showed me?
+[e][Antoine]Oh, sure, why?
+[e][Lapis]Those cards are a tool I have to help me out
+[e][Lapis]For example, they told me that you… are probably feeling lonely, right?
+[e][Antoine]...
+[e][Antoine]I won’t deny it.
+[e][Lapis]That’s a great first step.
+[e][Lapis]But this loneliness… It's a pretty complex issue, right?
+[e][Antoine]Heh, I guess you really are good at your job…
+[e][Lapis]I know we don’t know each other that much.
+[e][Lapis]But I’m here to help.
+[e][Lapis]The first card you showed me was the hermit
+[e][Lapis]One of its meanings is to search for truth…
+[e][Lapis]With it being the first one I saw, it probably has to do with your childhood.
+[e][Antoine]I… I think you’re right
+[e][Antoine]It’s something that has to do with a friend of mine from when I was a child
+[e][Antoine]He still lives in this town.
+[e][Antoine]We used to be best friends. Going around town, having adventures…
+[e][Antoine]Precious times… Glory days…
+[e][Lapis]But… you grew further apart
+[e][Antoine]...
+[e][Antoine]I am an open book, I guess
+[e][Lapis]No, don’t worry. I’m just… I’m just here to help you out.
+[e][Lapis]I promise.
+[e][Antoine]...
+[e][Antoine]You’re right. Adulthood made us grow apart.
+[e][Antoine]Jobs, responsibilities and some old grudges.
+[e][Lapis]I understand.
+[e][Lapis]Everything’s always harder when we’re adults
+[e][Lapis]Your second card was The Star. It symbolizes hope and rejuvenation.
+[e][Antoine]The things I guess I lost when I was no longer a child.
+[e][Lapis]You can still recover that spark.
+[e][Antoine]I’m not sure, Lapis.
+[e][Antoine]I’m already an old shriveled man.
+[e][Antoine]It has been so long that… I probably should let it stay as it is.
+[e][Antoine]I’m probably more of an annoyance to him.
+[e][Lapis]You’re not.
+[e][Lapis]Believe me, you’re a lovely person.
+[e][Lapis]I don’t know you that much. But the first thing you did was visit me and offer help.
+[e][Lapis]That alone tells me you’re a wonderful person.
+[e][Antoine]It’s just courtesy.
+[e][Lapis]Courtesy that comes from compassion. Bravery to meet new people.
+[e][Antoine]...
+[e][Lapis]I know that it’s harder to reconnect with someone you have some history over.
+[e][Lapis]There’s more things to take into account. Memories you have together.
+[e][Lapis]But that bravery and open-mindedness that you had when meeting me.
+[e][Lapis]That’s also what you need in order to make amends.
+[e][Antoine]Easier said than done.
+[e][Lapis]I’m not denying that it takes a lot.
+[e][Lapis]But I know you have the Strength.
+[e][Antoine]...
+[e][Antoine]My last card. Right?
+[e][Lapis]You’re right.
+[e][Lapis]But it doesn’t appear unless you have that strength in you already.
+[e][Antoine]You’re not to joke like me.
+[e][Antoine]Hmmm.
+[e][Antoine]Thank you, Lapis. I think this chat has helped me clear my head a bit.
+[e][Antoine]And I really mean it.
+[e][Lapis]Oh, don’t worry, Antoine. I’m glad I could help.
+[e][Antoine]Are you… Are you by any chance a fortune teller?
+[e][Lapis]I guess I am not really hiding it, hahahaha.
+[e][Antoine]Gee Golly. A fortune teller in our small town.
+[e][Antoine]I only ever saw one ever before. It wasn’t here though.
+[e][Antoine]It was a lovely little sea town in…
+[e][Antoine]...Ah, no, don’t worry. I won’t bore you with my little stories.
+[e][Lapis]No, don’t worry! I would love to hear it alongside more tea!
+[e][Antoine]Oh, thank you! And you know what?
+[e][Antoine]I will make sure to bring my old friend here to taste some as well.
+[e][Lapis]Believe me, that would be amazing.
+[e][Antoine]It would be my pleasure.
+[e][Antoine]It’s… It’s still gonna take some time.
+[e][Antoine]But I’m certainly more decisive about it.
+[e][Antoine]I guess your tea helps that way.
+[e][Lapis]My tea and powers only speed up what you already wanted from the start.
+[e][Lapis]You’re the one who really wanted the change after all.
+[e][Antoine]Heh, thanks Lapis.
+[e][Antoine]I’ll be sure to tell everyone that you make lovely tea at the art club.
+[e][Lapis]Thanks a lot, Antoine!
+[e][Antoine]Thanks to you!
+[e][Antoine]I better get going now. My vegetable patch needs to be watered.
+[DoorClose][Lapis]See you soon
+[e][Lapis]Hmmm…
+[e][Lapis]There he goes back home.
+[e][Lapis]What a sweet old man.
+[e][Lapis]He reminded me how it is never too late to make amends.
+[e][Lapis]I really hope we can have more chats soon.
+[e][Lapis]This one was a bit more… intense. But I’m sure he has lots of cute stories to tell.
+[e][Lapis]Hmmm…
+[e][Lapis]I’m sure everyone else in town has more of those as well.
+[e][Lapis][100]Hehe… 

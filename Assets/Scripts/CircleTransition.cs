@@ -65,6 +65,7 @@ public class CircleTransition : MonoBehaviour
 
     public void startLevel()
     {
+        //StopAllCoroutines();
         rt.anchoredPosition = Camera.main.ScreenToWorldPoint(startTarget.position);
         zeroScreenCircle();
         StartCoroutine(startLevelTransition());
@@ -72,6 +73,7 @@ public class CircleTransition : MonoBehaviour
 
     public void endLevel(string levelName, Transform target)
     {
+        //StopAllCoroutines();
         rt.anchoredPosition = Camera.main.ScreenToWorldPoint(target.position);
         nextLevel = levelName;
         resetScreenCircle();

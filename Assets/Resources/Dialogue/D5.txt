@@ -1,0 +1,17 @@
+[e][Lapis]Finally back home again!
+[e][Lapis]Antoine is still gonna take some time to come over here
+[e][Lapis]Time to make my special blend of tea!
+[e][Lapis]I’m sure a tea with these tree plants will help Antoine out.
+[e][Lapis]Ok, Lapis… Let’s think about this…
+[e][Lapis][12]I need to dry up the plants first. A heat spell will work.
+[e][Lapis]Then I have to crush them in my mortar. Nothing fancy.
+[e][Lapis]Then I should gather some water for the tea. Levitation speeds things up.
+[e][Lapis]Heating everything up together will work.
+[e][Lapis]And I can’t forget about setting the table up for my guest!
+[e][Lapis][14]Ok! First, I need to dry these plants!
+[e][Lapis]First, a heat spell for my hands…
+[Magic][Lapis]Ignister!
+[e][Lapis]There! Now I just need to spread the heat with my hands all over these!
+[e][Lapis]Just moving my hands around will suffice.
+[e][Lapis]But I should dry the plants evenly across the board.
+[e][Lapis]I don’t want one section dryer or fresher than the rest. 

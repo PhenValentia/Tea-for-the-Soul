@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     GameObject headArea;
     CanvasGroup dialogueArea;
     CanvasGroup bubbleArea;
+    EnvManager eM;
     TextMeshProUGUI dialogueText;
     TextMeshProUGUI bubbleText;
     AudioSource source;
@@ -20,8 +21,8 @@ public class DialogueManager : MonoBehaviour
     int currentLine;
     bool textCurrentlyWriting;
     string[] lines;
-    bool runningDialogue = false;
-    bool runningBubble = false;
+    public bool runningDialogue = false;
+    public bool runningBubble = false;
 
     MovementController pMove;
 
@@ -32,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentLine = 0;
 
+        eM = GameObject.Find("EnvironmentManager").GetComponent<EnvManager>();
         pMove = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MovementController>();
         dialogueArea = GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<CanvasGroup>();
         bubbleArea = GameObject.FindGameObjectWithTag("DialogueBubble").GetComponent<CanvasGroup>();
@@ -60,6 +62,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.anyKeyDown && Time.time - timeSinceAnyKey > waitTime)
         {
+            //StopAllCoroutines();
             timeSinceAnyKey = Time.time;
             if (runningDialogue)
             {
@@ -69,6 +72,31 @@ public class DialogueManager : MonoBehaviour
             {
                 advanceBubble();
             }
+            else if (dialogueArea.alpha > 0)
+            {
+                StartCoroutine(fadeDialogue());
+            }
+            else if (bubbleArea.alpha > 0)
+            {
+                StartCoroutine(fadeBubble());
+            }
+        }
+    }
+
+    IEnumerator fadeDialogue()
+    {
+        for (int i = 0; dialogueArea.alpha > 0; i++)
+        {
+            dialogueArea.alpha = dialogueArea.alpha - 0.04f;
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+    }
+    IEnumerator fadeBubble ()
+    {
+        for (int i = 0; bubbleArea.alpha > 0; i++)
+        {
+            bubbleArea.alpha = bubbleArea.alpha - 0.04f;
+            yield return new WaitForSecondsRealtime(0.01f);
         }
     }
 
@@ -132,6 +160,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (textCurrentlyWriting)
         {
+            dialogueArea.alpha = 1;
             StopCoroutine(writeDialogue(lines[currentLine]));
             StopAllCoroutines();
             textCurrentlyWriting = false;
@@ -180,6 +209,18 @@ public class DialogueManager : MonoBehaviour
                     }
                     i = newCounter;
                 }
+                else if (str[i] == '[' && headFound && soundFound)
+                {
+                    int newCounter = i;
+                    string storyPoint = "";
+                    for (int j = i + 1; str[j] != ']'; j++)
+                    {
+                        storyPoint += str[j];
+                        newCounter = j + 1;
+                    }
+                    eM.setStoryPoint(int.Parse(storyPoint));
+                    i = newCounter;
+                }
                 else if (str[i] == '<')
                 {
                     int newCounter = i;
@@ -209,12 +250,22 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1f;
-            //headBox.color = new Color(0, 0, 0, 0);
-            pMove.enableMovement();
-            dialogueArea.alpha = 0;
-            runningDialogue = false;
+            StartCoroutine(endDialogue());
         }
+    }
+
+    IEnumerator endDialogue()
+    {
+        for (int i = 0; dialogueArea.alpha > 0; i++)
+        {
+            dialogueArea.alpha = dialogueArea.alpha - 0.04f;
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+        Time.timeScale = 1f;
+        //headBox.color = new Color(0, 0, 0, 0);
+        pMove.enableMovement();
+        dialogueArea.alpha = 0;
+        runningDialogue = false;
     }
 
     // SPEECH BOX SECTION
@@ -274,6 +325,18 @@ public class DialogueManager : MonoBehaviour
                 }
                 i = newCounter;
             }
+            else if (str[i] == '[' && headFound && soundFound)
+            {
+                int newCounter = i;
+                string storyPoint = "";
+                for (int j = i + 1; str[j] != ']'; j++)
+                {
+                    storyPoint += str[j];
+                    newCounter = j + 1;
+                }
+                eM.setStoryPoint(int.Parse(storyPoint));
+                i = newCounter;
+            }
             else if (str[i] == '<')
             {
                 int newCounter = i;
@@ -300,7 +363,9 @@ public class DialogueManager : MonoBehaviour
 
     void setSound(string soundName)
     {
-        source.PlayOneShot(Resources.Load<AudioClip>("Audio/" + soundName));
+        source.Stop();
+        source.clip = Resources.Load<AudioClip>("Audio/" + soundName);
+        source.Play();
     }
 
     void setHead(string headName)
@@ -361,8 +426,20 @@ public class DialogueManager : MonoBehaviour
                 else
                 {
                     Debug.LogError("No Position Found: Defaulting to Player");
-                    setPos("Player");
+                    setPos("Lapis");
                 }
+                i = newCounter;
+            }
+            else if (str[i] == '[' && headFound && soundFound)
+            {
+                int newCounter = i;
+                string storyPoint = "";
+                for (int j = i + 1; str[j] != ']'; j++)
+                {
+                    storyPoint += str[j];
+                    newCounter = j + 1;
+                }
+                eM.setStoryPoint(int.Parse(storyPoint));
                 i = newCounter;
             }
             else if (str[i] == '<')
@@ -398,8 +475,10 @@ public class DialogueManager : MonoBehaviour
 
     void setPos(string headName)
     {
-        Vector2 target = GameObject.Find(headName).transform.position;
-        bubbleArea.transform.position = Camera.main.WorldToScreenPoint(target) + new Vector3(50,50,0);
+        Transform t = GameObject.Find(headName).transform;
+        Vector2 s = t.GetComponent<BoxCollider2D>().size;
+        Vector2 target = t.position + new Vector3(s.x, s.y, 0);
+        bubbleArea.transform.position = Camera.main.WorldToScreenPoint(target) + new Vector3(s.x, s.y, 0);
 
     }
 
@@ -411,6 +490,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (textCurrentlyWriting)
         {
+            bubbleArea.alpha = 1;
             StopCoroutine(writeDialogue(lines[currentLine]));
             StopAllCoroutines();
             textCurrentlyWriting = false;
@@ -457,6 +537,18 @@ public class DialogueManager : MonoBehaviour
                         Debug.LogError("No Position Found: Defaulting to Player");
                         setPos("Player");
                     }
+                    i = newCounter;
+                }
+                else if (str[i] == '[' && headFound && soundFound)
+                {
+                    int newCounter = i;
+                    string storyPoint = "";
+                    for (int j = i + 1; str[j] != ']'; j++)
+                    {
+                        storyPoint += str[j];
+                        newCounter = j + 1;
+                    }
+                    eM.setStoryPoint(int.Parse(storyPoint));
                     i = newCounter;
                 }
                 else if (str[i] == '<')
@@ -518,7 +610,7 @@ public class DialogueManager : MonoBehaviour
         Time.timeScale = 1f;
         //headBox.color = new Color(0, 0, 0, 0);
         pMove.enableMovement();
-        dialogueArea.alpha = 0;
+        bubbleArea.alpha = 0;
         runningBubble = false;
     }
 }

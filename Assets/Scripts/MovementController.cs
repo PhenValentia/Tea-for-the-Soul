@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -34,9 +35,18 @@ public class MovementController : MonoBehaviour
     {
         if (allowMovement)
         {
-            if (Input.GetAxis("Horizontal") != 0)
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * walkSpeed, rb.velocity.y);
+            if (SceneManager.GetActiveScene().name == "2IntroCutscene")
             {
-                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * walkSpeed, rb.velocity.y);
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+            else if(Input.GetAxis("Horizontal") != 0)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+            else
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             }
             if (Input.GetButtonDown("Jump") && Grounded() && !jumpInitiated)
             {
