@@ -18,6 +18,9 @@ public class MovementController : MonoBehaviour
     float groundedDetectionRange = 0.1f;
     Collider2D col;
     LayerMask ignorePlayerMask;
+    Animator anim;
+    GameObject playerModel;
+    float pmScale;
 
     [SerializeField]
     bool allowMovement = true;
@@ -27,6 +30,13 @@ public class MovementController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        anim = GetComponentInChildren<Animator>();
+        playerModel = transform.Find("PlayerModel").gameObject;
+        pmScale = playerModel.transform.localScale.x;
+        if(SceneManager.GetActiveScene().name == "HouseInterior")
+        {
+            playerModel.transform.localScale = new Vector3(-pmScale, pmScale, pmScale);
+        }
         ignorePlayerMask = ~(1 << 6);
     }
 
@@ -36,7 +46,17 @@ public class MovementController : MonoBehaviour
         if (allowMovement)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * walkSpeed, rb.velocity.y);
-            if (SceneManager.GetActiveScene().name == "2IntroCutscene")
+            //Debug.Log("NewVel: "+ Input.GetAxis("Horizontal") * walkSpeed + " CurVel: "+rb.velocity.x);
+            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+            if(rb.velocity.x > 0)
+            {
+                playerModel.transform.localScale = new Vector3(-pmScale, pmScale, pmScale);
+            }
+            else if (rb.velocity.x < 0)
+            {
+                playerModel.transform.localScale = new Vector3(pmScale, pmScale, pmScale);
+            }
+            if (SceneManager.GetActiveScene().name == "Cutscene1")
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
             }
@@ -54,7 +74,7 @@ public class MovementController : MonoBehaviour
                 //StartCoroutine(resetJump());
                 rb.AddForce(Vector2.up * jumpInitialSpeed, ForceMode2D.Impulse);
             }
-            if (Input.GetAxis("Vertical") < 0)
+            /*if (Input.GetAxis("Vertical") < 0)
             {
                 //IgnoreCollision();
                 dropInitiated = true;
@@ -63,7 +83,11 @@ public class MovementController : MonoBehaviour
             else
             {
                 dropInitiated = false;
-            }
+            }*/
+        }
+        else
+        {
+            anim.SetFloat("Speed", 0);
         }
     }
 

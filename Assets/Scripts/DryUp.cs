@@ -13,14 +13,24 @@ public class DryUp : MonoBehaviour
     ParticleSystem fixP;
 
     bool finished = false;
+    bool fix = false;
+    bool cooking = false;
+    bool lastCooked = false;
 
     float cooked = 1;
+
+    AudioSource aS;
 
     //private int index = 1;//initialize of 1, and need to put different materials in order
 
     // Start is called before the first frame update
     void Start()
     {
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+        transform.localScale = new Vector3(Random.Range(0.05f, 0.15f), Random.Range(0.05f, 0.15f), Random.Range(0.05f, 0.15f));
+        aS = GetComponent<AudioSource>();
+        aS.loop = true;
+        aS.clip = Resources.Load<AudioClip>("Audio/Crackle");
         cooked = Random.Range(0.8f, 1);
         finished = false;
         rend = GetComponent<SpriteRenderer>();
@@ -29,6 +39,10 @@ public class DryUp : MonoBehaviour
         cookedP = GetComponentsInChildren<ParticleSystem>()[1];
         burntP = GetComponentsInChildren<ParticleSystem>()[2];
         fixP = GetComponentsInChildren<ParticleSystem>()[3];
+        cookP.transform.rotation = Quaternion.Euler(Vector3.zero);
+        cookedP.transform.rotation = Quaternion.Euler(Vector3.zero);
+        burntP.transform.rotation = Quaternion.Euler(Vector3.zero);
+        fixP.transform.rotation = Quaternion.Euler(Vector3.zero);
         cookP.Stop();
         cookedP.Stop();
         burntP.Stop();
@@ -47,6 +61,7 @@ public class DryUp : MonoBehaviour
         {
             cookedP.Play();
             finished = true;
+            aS.PlayOneShot(Resources.Load<AudioClip>("Audio/Done"));
             Debug.Log("Cooked");
         }
         if(cooked < 0.5 && finished)
@@ -54,7 +69,14 @@ public class DryUp : MonoBehaviour
             burntP.Play();
             cooked = 0;
             finished = false;
+            aS.PlayOneShot(Resources.Load<AudioClip>("Audio/Char"));
             Debug.Log("Burnt");
+        }
+        if(fix == true)
+        {
+            fix = false;
+            Debug.Log("PlayingFix: "+ Resources.Load<AudioClip>("Audio/Fix"));
+            aS.PlayOneShot(Resources.Load<AudioClip>("Audio/Fix"));
         }
     }
 
@@ -69,24 +91,37 @@ public class DryUp : MonoBehaviour
             {
                 cooked -= 0.01f * (0.2f - distance);
                 cookP.Play();
+                cooking = true;
                 //Debug.Log("Cooked: " + cooked);
             }
             else
             {
+                cooking = false;
                 cookP.Stop();
             }
         }
         else
         {
+            cooking = false;
             cookP.Stop();
         }
         if (cooked < 0.5 && Input.GetButton("Interact") && PlayerPrefs.GetInt("Minigame") == 1)
         {
+            fix = true;
             fixP.Play();
             cookedP.Stop();
             burntP.Stop();
             cooked = 1;
         }
+        if (cooking == true && lastCooked == false)
+        {
+            aS.Play();
+        }
+        else if (cooking == false && lastCooked == true)
+        {
+            aS.Stop();
+        }
+        lastCooked = cooking;
     }
 
     // Update is called once per frame

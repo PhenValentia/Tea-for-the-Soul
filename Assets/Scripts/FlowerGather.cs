@@ -11,10 +11,14 @@ public class FlowerGather : MonoBehaviour
     Image flower;
     RectTransform rt;
     Vector2 originalPos;
+    AudioClip c;
+    AudioSource aS;
 
     // Start is called before the first frame update
     void Start()
     {
+        c = Resources.Load<AudioClip>("Audio/Snip");
+        aS = Camera.main.gameObject.GetComponent<AudioSource>();
         rt = GetComponent<RectTransform>();
         originalPos = rt.anchoredPosition;
         flower = GetComponent<Image>();
@@ -44,6 +48,9 @@ public class FlowerGather : MonoBehaviour
         collected = true;
         if (flowerNum != 0)
         {
+            aS.clip = c;
+            aS.time = 0;
+            aS.Play();
             PlayerPrefs.SetInt("Flower" + flowerNum, 1);
         }
         else

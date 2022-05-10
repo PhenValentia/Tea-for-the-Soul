@@ -1643,6 +1643,7 @@ m_ResolvedPackages:
     - 0.1.21-preview
     - 1.0.0
     - 2.0.0
+    - 2.0.1
     compatible:
     - 0.1.4-preview
     - 0.1.5-preview
@@ -1663,6 +1664,7 @@ m_ResolvedPackages:
     - 0.1.21-preview
     - 1.0.0
     - 2.0.0
+    - 2.0.1
     verified: 
   dependencies:
   - name: com.unity.sysroot

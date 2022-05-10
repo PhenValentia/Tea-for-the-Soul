@@ -19,10 +19,13 @@ public class DropletController : MonoBehaviour
     bool decreasing = false;
     bool moving = false;
     CapsuleCollider2D c;
+    AudioSource aS;
 
     // Start is called before the first frame update
     void Start()
     {
+        aS = GetComponent<AudioSource>();
+        aS.clip = Resources.Load<AudioClip>("Audio/Flick");
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         c = GetComponent<CapsuleCollider2D>();
@@ -85,6 +88,8 @@ public class DropletController : MonoBehaviour
             }
             else if (dC.size < size)
             {
+                aS.time = 0;
+                aS.Play();
                 StartCoroutine(moveToDropAndIncrease(collision.gameObject, dC.size));
             }
             else if (dC.dropID > dropID)
@@ -93,12 +98,16 @@ public class DropletController : MonoBehaviour
             }
             else
             {
+                aS.time = 0;
+                aS.Play();
                 StartCoroutine(moveToDropAndIncrease(collision.gameObject, dC.size));
             }
         }
         else if (collision.gameObject.name == "LidCol")
         {
             Debug.Log("Lid Collided");
+            aS.clip = Resources.Load<AudioClip>("Audio/Drip");
+            aS.Play();
             StartCoroutine(decreaseIntoPot(collision.transform.position));
         }
     }

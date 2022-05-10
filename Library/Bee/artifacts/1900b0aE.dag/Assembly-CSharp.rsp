@@ -369,9 +369,11 @@
 "Assets/Scripts/LidTilter.cs"
 "Assets/Scripts/MainMeun.cs"
 "Assets/Scripts/MovementController.cs"
+"Assets/Scripts/MusicPlayer.cs"
 "Assets/Scripts/SetIcon.cs"
 "Assets/Scripts/SnapToTarget.cs"
 "Assets/Scripts/SparksController.cs"
+"Assets/Scripts/StepSound.cs"
 "Assets/Scripts/WandController.cs"
 -langversion:8.0
 
