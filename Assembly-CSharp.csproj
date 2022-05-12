@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -67,7 +67,9 @@
     <Compile Include="Assets\Scripts\FadeIn.cs" />
     <Compile Include="Assets\Scripts\MovementController.cs" />
     <Compile Include="Assets\Scripts\FadeScript.cs" />
+    <Compile Include="Assets\Scripts\StepSound.cs" />
     <Compile Include="Assets\Scripts\Flower.cs" />
+    <Compile Include="Assets\Scripts\MusicPlayer.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\DropdownRelayScript.cs" />
     <Compile Include="Assets\Scripts\DryUp.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="Assets\Scripts\CircleTransition.cs" />
     <Compile Include="Assets\Scripts\HandController.cs" />
     <Compile Include="Assets\Scripts\SnapToTarget.cs" />
+    <Compile Include="Assets\Scripts\ExplainTextManager.cs" />
+    <Compile Include="Assets\Scripts\TutorialText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -100,6 +104,7 @@
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Resources\Dialogue\Forest.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\Dialogue\D6.txt" />

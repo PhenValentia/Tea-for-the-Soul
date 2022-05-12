@@ -70,5 +70,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55116244e11ceb4eb3da74602b597e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueName: Test2
+  dialogueName: D1
   isBubble: 1

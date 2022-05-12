@@ -15,6 +15,8 @@ public class CircleTransition : MonoBehaviour
     [SerializeField]
     int zoomSpeed = 20;
 
+    MusicPlayer mP;
+
     public bool waitingToTransition;
 
 
@@ -22,6 +24,7 @@ public class CircleTransition : MonoBehaviour
     void Start()
     {
         rt = GetComponent<RectTransform>();
+        mP = GameObject.Find("EnvironmentManager").GetComponent<MusicPlayer>();
         startTarget = GameObject.Find(circleOpenTargetName).transform;
         startLevel();
     }
@@ -42,10 +45,12 @@ public class CircleTransition : MonoBehaviour
     IEnumerator startLevelTransition()
     {
         waitingToTransition = true;
+        float musicInc = 1/(getScreenRadius() * 20/zoomSpeed);
         for (float f = 0; f < getScreenRadius(); f = f + zoomSpeed)
         {
             yield return new WaitForSeconds(0.01f);
             rt.sizeDelta = new Vector2(f, f);
+            mP.setVol(f * musicInc);
         }
         waitingToTransition = false;
     }
@@ -53,11 +58,14 @@ public class CircleTransition : MonoBehaviour
     IEnumerator endLevelTransition()
     {
         waitingToTransition = true;
+        float musicInc = 1 / (getScreenRadius() * 20/ zoomSpeed);
         for (float f = getScreenRadius(); f > 0; f = f - zoomSpeed)
         {
             yield return new WaitForSeconds(0.01f);
             rt.sizeDelta = new Vector2(f, f);
+            mP.setVol(f * musicInc);
         }
+        mP.saveTime();
         rt.sizeDelta = new Vector2(0, 0);
         waitingToTransition = false;
         SceneManager.LoadScene(nextLevel);
@@ -65,7 +73,6 @@ public class CircleTransition : MonoBehaviour
 
     public void startLevel()
     {
-        //StopAllCoroutines();
         rt.anchoredPosition = Camera.main.ScreenToWorldPoint(startTarget.position);
         zeroScreenCircle();
         StartCoroutine(startLevelTransition());
@@ -73,7 +80,6 @@ public class CircleTransition : MonoBehaviour
 
     public void endLevel(string levelName, Transform target)
     {
-        //StopAllCoroutines();
         rt.anchoredPosition = Camera.main.ScreenToWorldPoint(target.position);
         nextLevel = levelName;
         resetScreenCircle();

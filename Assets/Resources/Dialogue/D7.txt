@@ -1,7 +1,7 @@
 [e][Lapis]All done!
 [e][Lapis]Now, the only thing left is for Antoine to come.
 [Knock][Lapis]Oh! That must be him!
-[DoorOpen][Antoine][24]Good afternoon miss! I came just as you told me!
+[DoorOpen][Antoine][25]Good afternoon miss! I came just as you told me!
 [e][Antoine]*sniff, sniff* Oh, that’s a great aroma!
 [e][Antoine]I guess you weren’t kidding when you said you helped people through tea.
 [e][Lapis]Oh, yeah! Enter, have a seat.

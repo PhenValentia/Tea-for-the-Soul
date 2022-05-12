@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     Vector3 posTarget;
     float zoomSpeed = 0.01f;
     float moveSpeed = 0.01f;
+    public bool changing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class CameraController : MonoBehaviour
 
     IEnumerator changeCam()
     {
+        changing = true;
         while (cam.orthographicSize != sizeTarget || transform.position != posTarget)
         {
             cam.orthographicSize -= (cam.orthographicSize - sizeTarget) * zoomSpeed;
@@ -52,11 +54,16 @@ public class CameraController : MonoBehaviour
             {
                 cam.orthographicSize = sizeTarget;
             }
-            if (Mathf.Abs((transform.position - posTarget).magnitude) < 0.001f)
+            if (Mathf.Abs((transform.position - posTarget).magnitude) < 0.5f)
+            {
+                changing = false;
+            }
+            if (Mathf.Abs((transform.position - posTarget).magnitude) < 0.01f)
             {
                 transform.position = posTarget;
             }
             yield return new WaitForFixedUpdate();
         }
+        changing = false;
     }
 }

@@ -10,6 +10,8 @@ public class DropletController : MonoBehaviour
     float accel = 1f;
     [SerializeField]
     float deccel = 0.01f;
+    [SerializeField]
+    float offsetSize = 0.2f;
     Rigidbody2D rb;
     SpriteRenderer sr;
     public int size = 1;
@@ -19,16 +21,31 @@ public class DropletController : MonoBehaviour
     bool decreasing = false;
     bool moving = false;
     CapsuleCollider2D c;
+    CircleCollider2D c2;
+    AudioSource aS;
+    Vector3 randomOffset;
+    bool[] holdVals;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("WaterCollected", 0);
+        randomOffset = Random.insideUnitSphere * offsetSize;
+        randomOffset.z = 0;
+        aS = GetComponent<AudioSource>();
+        aS.clip = Resources.Load<AudioClip>("Audio/Flick");
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         c = GetComponent<CapsuleCollider2D>();
+        c2 = GetComponent<CircleCollider2D>();
         startScale = transform.localScale.x;
         decreasing = false;
         moving = false;
+        holdVals = new bool[20];
+        for (int i = 0; i < 20; i++)
+        {
+            holdVals[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -66,7 +83,7 @@ public class DropletController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + deccel * Time.deltaTime);
             }
         }
-        Debug.Log("Test: " + (transform.localScale.magnitude < (Vector3.one * size * 0.1f * startScale).magnitude));
+        //Debug.Log("Test: " + (transform.localScale.magnitude < (Vector3.one * size * 0.1f * startScale).magnitude));
         if (transform.localScale.magnitude < (Vector3.one * size * startScale).magnitude && !decreasing)
         {
             transform.localScale += Vector3.one * Time.deltaTime * startScale;
@@ -85,7 +102,9 @@ public class DropletController : MonoBehaviour
             }
             else if (dC.size < size)
             {
-                StartCoroutine(moveToDropAndIncrease(collision.gameObject, dC.size));
+                aS.time = 0;
+                aS.Play();
+                StartCoroutine(moveToDropAndIncrease(collision.gameObject, dC.size, dC.dropID));
             }
             else if (dC.dropID > dropID)
             {
@@ -93,18 +112,24 @@ public class DropletController : MonoBehaviour
             }
             else
             {
-                StartCoroutine(moveToDropAndIncrease(collision.gameObject, dC.size));
+                aS.time = 0;
+                aS.Play();
+                StartCoroutine(moveToDropAndIncrease(collision.gameObject, dC.size, dC.dropID));
             }
         }
         else if (collision.gameObject.name == "LidCol")
         {
             Debug.Log("Lid Collided");
+            aS.clip = Resources.Load<AudioClip>("Audio/Drip");
+            aS.Play();
             StartCoroutine(decreaseIntoPot(collision.transform.position));
         }
     }
 
     IEnumerator moveToDropAndDestroy(GameObject obj)
     {
+        GameObject.Destroy(c);
+        GameObject.Destroy(c2);
         moving = true;
         obj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         while ((obj.transform.position - transform.position).magnitude > 0.1f)
@@ -118,11 +143,15 @@ public class DropletController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    IEnumerator moveToDropAndIncrease(GameObject objectIn, int sizeIn)
+    IEnumerator moveToDropAndIncrease(GameObject objectIn, int sizeIn, int dropID)
     {
         moving = true;
-        int sizeIncrease = sizeIn;
-        size += sizeIncrease;
+        if (holdVals[dropID] == false)
+        {
+            int sizeIncrease = sizeIn;
+            size += sizeIncrease;
+            holdVals[dropID] = true;
+        }
         Vector3 targetPos = transform.position + (objectIn.transform.position - transform.position) / 2;
         objectIn.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         while ((targetPos - transform.position).magnitude > 0.1f)
@@ -136,21 +165,28 @@ public class DropletController : MonoBehaviour
 
     IEnumerator decreaseIntoPot(Vector3 target)
     {
+        GameObject.Destroy(c2);
         moving = true;
         decreasing = true;
         rb.velocity = Vector2.zero;
         while ((target - transform.position).magnitude > 0.01f)
         {
+            Debug.Log("A:" + (target - transform.position).magnitude);
             transform.position = Vector3.Normalize(target - transform.position) * Time.deltaTime * 0.1f + transform.position;
+            if (transform.localScale.x > 0) {
+                transform.localScale -= Vector3.one * 1f * Time.deltaTime * startScale;
+            }
             yield return new WaitForFixedUpdate();
         }
         while (transform.localScale.x > 0)
         {
+            Debug.Log("B:" + transform.localScale.x);
             transform.localScale -= Vector3.one * 1f * Time.deltaTime * startScale;
             yield return new WaitForFixedUpdate();
         }
         transform.localScale = Vector3.zero;
         Debug.Log("PutInPot");
+        PlayerPrefs.SetInt("WaterCollected", PlayerPrefs.GetInt("WaterCollected")+size);
         Destroy(this.gameObject);
     }
 }

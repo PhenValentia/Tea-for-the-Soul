@@ -6,6 +6,7 @@ public class FadeIn : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer sr;
+    SpriteRenderer[] srArray;
     bool faded = true;
 
     // Start is called before the first frame update
@@ -15,7 +16,12 @@ public class FadeIn : MonoBehaviour
         {
             sr = GetComponentInChildren<SpriteRenderer>();
         }
+        srArray = sr.gameObject.GetComponentsInChildren<SpriteRenderer>();
         sr.color = new Color(sr.color.r, sr.color.b, sr.color.g, 0);
+        foreach (SpriteRenderer arrayRend in srArray)
+        {
+            arrayRend.color = new Color(sr.color.r, sr.color.b, sr.color.g, 0);
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +58,13 @@ public class FadeIn : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
             sr.color = new Color(sr.color.r, sr.color.b, sr.color.g, i);
+            if(srArray != null)
+            {
+                foreach(SpriteRenderer arrayRend in srArray)
+                {
+                    arrayRend.color = new Color(sr.color.r, sr.color.b, sr.color.g, i);
+                }
+            }
         }
         faded = false;
     }
@@ -62,6 +75,13 @@ public class FadeIn : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
             sr.color = new Color(sr.color.r, sr.color.b, sr.color.g, i);
+            if (srArray != null)
+            {
+                foreach (SpriteRenderer arrayRend in srArray)
+                {
+                    arrayRend.color = new Color(sr.color.r, sr.color.b, sr.color.g, i);
+                }
+            }
         }
         faded = true;
     }

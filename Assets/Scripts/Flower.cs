@@ -17,13 +17,13 @@ public class Flower : MonoBehaviour
             collected = true;
             Destroy(this.gameObject);
         }
-        Debug.Log(GameObject.Find("FlowerIcon" + flowerNum).GetComponent<FlowerGather>());
+        //Debug.Log(GameObject.Find("FlowerIcon" + flowerNum).GetComponent<FlowerGather>());
         fg = GameObject.Find("FlowerIcon" + flowerNum).GetComponent<FlowerGather>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("col");
+        //Debug.Log("col");
         if(Input.GetButton("Interact") && collision.tag == "Player" && collected == false)
         {
             collected = true;

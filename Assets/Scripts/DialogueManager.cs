@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     TextMeshProUGUI dialogueText;
     TextMeshProUGUI bubbleText;
     AudioSource source;
+    IEnumerator storedCoroutine;
 
     public string dialogueName;
     string file;
@@ -62,7 +63,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.anyKeyDown && Time.time - timeSinceAnyKey > waitTime)
         {
-            //StopAllCoroutines();
             timeSinceAnyKey = Time.time;
             if (runningDialogue)
             {
@@ -74,11 +74,13 @@ public class DialogueManager : MonoBehaviour
             }
             else if (dialogueArea.alpha > 0)
             {
-                StartCoroutine(fadeDialogue());
+                storedCoroutine = fadeDialogue();
+                StartCoroutine(storedCoroutine);
             }
             else if (bubbleArea.alpha > 0)
             {
-                StartCoroutine(fadeBubble());
+                storedCoroutine = fadeBubble();
+                StartCoroutine(storedCoroutine);
             }
         }
     }
@@ -123,7 +125,8 @@ public class DialogueManager : MonoBehaviour
         dialogueText.SetText("");
         currentLine = 0;
         //StartCoroutine(beginBubble());
-        StartCoroutine(writeBubble(lines[0]));
+        storedCoroutine = writeBubble(lines[0]);
+        StartCoroutine(storedCoroutine);
     }
 
     public void startDialogue(string inputDialogueName)
@@ -149,7 +152,8 @@ public class DialogueManager : MonoBehaviour
         //overlayImage.color = new Color(1, 1, 1, 0);
         dialogueText.SetText("");
         currentLine = 0;
-        StartCoroutine(beginDialogue());
+        storedCoroutine = beginDialogue();
+        StartCoroutine(storedCoroutine);
     }
 
     public void advanceDialogue()
@@ -161,8 +165,7 @@ public class DialogueManager : MonoBehaviour
         else if (textCurrentlyWriting)
         {
             dialogueArea.alpha = 1;
-            StopCoroutine(writeDialogue(lines[currentLine]));
-            StopAllCoroutines();
+            StopCoroutine(storedCoroutine);
             textCurrentlyWriting = false;
 
             string str = lines[currentLine];
@@ -246,11 +249,13 @@ public class DialogueManager : MonoBehaviour
         else if (currentLine + 1 < lines.Length)
         {
             currentLine++;
-            StartCoroutine(writeDialogue(lines[currentLine]));
+            storedCoroutine = writeDialogue(lines[currentLine]);
+            StartCoroutine(storedCoroutine);
         }
         else
         {
-            StartCoroutine(endDialogue());
+            storedCoroutine = endDialogue();
+            StartCoroutine(storedCoroutine);
         }
     }
 
@@ -277,7 +282,8 @@ public class DialogueManager : MonoBehaviour
             dialogueArea.alpha = dialogueArea.alpha + 0.01f;
             yield return new WaitForSecondsRealtime(0.01f);
         }
-        StartCoroutine(writeDialogue(lines[0]));
+        storedCoroutine = writeDialogue(lines[0]);
+        StartCoroutine(storedCoroutine);
     }
 
     IEnumerator writeDialogue(string str)
@@ -491,8 +497,7 @@ public class DialogueManager : MonoBehaviour
         else if (textCurrentlyWriting)
         {
             bubbleArea.alpha = 1;
-            StopCoroutine(writeDialogue(lines[currentLine]));
-            StopAllCoroutines();
+            StopCoroutine(storedCoroutine);
             textCurrentlyWriting = false;
 
             string str = lines[currentLine];
@@ -582,11 +587,13 @@ public class DialogueManager : MonoBehaviour
         else if (currentLine + 1 < lines.Length)
         {
             currentLine++;
-            StartCoroutine(continueBubble(lines[currentLine]));
+            storedCoroutine = continueBubble(lines[currentLine]);
+            StartCoroutine(storedCoroutine);
         }
         else
         {
-            StartCoroutine(endBubble());
+            storedCoroutine = endBubble();
+            StartCoroutine(storedCoroutine);
         }
     }
 
@@ -597,7 +604,8 @@ public class DialogueManager : MonoBehaviour
             bubbleArea.alpha = bubbleArea.alpha - 0.04f;
             yield return new WaitForSecondsRealtime(0.01f);
         }
-        StartCoroutine(writeBubble(inputLine));
+        storedCoroutine = writeBubble(inputLine);
+        StartCoroutine(storedCoroutine);
     }
 
     IEnumerator endBubble()

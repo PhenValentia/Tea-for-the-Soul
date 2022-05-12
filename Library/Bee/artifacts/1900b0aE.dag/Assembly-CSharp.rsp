@@ -361,6 +361,7 @@
 "Assets/Scripts/DryUp.cs"
 "Assets/Scripts/EnvManager.cs"
 "Assets/Scripts/EstablishPrefs.cs"
+"Assets/Scripts/ExplainTextManager.cs"
 "Assets/Scripts/FadeIn.cs"
 "Assets/Scripts/FadeScript.cs"
 "Assets/Scripts/Flower.cs"
@@ -369,9 +370,12 @@
 "Assets/Scripts/LidTilter.cs"
 "Assets/Scripts/MainMeun.cs"
 "Assets/Scripts/MovementController.cs"
+"Assets/Scripts/MusicPlayer.cs"
 "Assets/Scripts/SetIcon.cs"
 "Assets/Scripts/SnapToTarget.cs"
 "Assets/Scripts/SparksController.cs"
+"Assets/Scripts/StepSound.cs"
+"Assets/Scripts/TutorialText.cs"
 "Assets/Scripts/WandController.cs"
 -langversion:8.0
 

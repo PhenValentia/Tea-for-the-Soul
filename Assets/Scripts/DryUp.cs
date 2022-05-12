@@ -13,26 +13,45 @@ public class DryUp : MonoBehaviour
     ParticleSystem fixP;
 
     bool finished = false;
+    bool fix = false;
+    bool cooking = false;
+    bool lastCooked = false;
+    bool changing = false;
 
     float cooked = 1;
+
+    Vector3 startScale;
+
+    AudioSource aS;
 
     //private int index = 1;//initialize of 1, and need to put different materials in order
 
     // Start is called before the first frame update
     void Start()
     {
+        //transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+        //transform.localScale = new Vector3(Random.Range(0.05f, 0.15f), Random.Range(0.05f, 0.15f), Random.Range(0.05f, 0.15f));
+        aS = GetComponent<AudioSource>();
+        aS.loop = true;
+        aS.clip = Resources.Load<AudioClip>("Audio/Crackle");
         cooked = Random.Range(0.8f, 1);
         finished = false;
         rend = GetComponent<SpriteRenderer>();
         rend.enabled = true;
         cookP = GetComponentsInChildren<ParticleSystem>()[0];
+        cookP.GetComponent<ParticleSystemRenderer>().sortingOrder = rend.sortingOrder - 1;
         cookedP = GetComponentsInChildren<ParticleSystem>()[1];
         burntP = GetComponentsInChildren<ParticleSystem>()[2];
         fixP = GetComponentsInChildren<ParticleSystem>()[3];
+        cookP.transform.rotation = Quaternion.Euler(Vector3.zero);
+        cookedP.transform.rotation = Quaternion.Euler(Vector3.zero);
+        burntP.transform.rotation = Quaternion.Euler(Vector3.zero);
+        fixP.transform.rotation = Quaternion.Euler(Vector3.zero);
         cookP.Stop();
         cookedP.Stop();
         burntP.Stop();
         fixP.Stop();
+        startScale = transform.localScale;
     }
 
     public bool getFinished()
@@ -42,20 +61,67 @@ public class DryUp : MonoBehaviour
 
     private void Update()
     {
-        rend.color = new Color(cooked, cooked, cooked, 1);
-        if(cooked < 0.6 && cooked > 0.5 && !finished)
+        if (PlayerPrefs.GetInt("StoryPoint") > 20)
         {
-            cookedP.Play();
-            finished = true;
-            Debug.Log("Cooked");
+            rend.color = Color.clear;
         }
-        if(cooked < 0.5 && finished)
+        else
         {
-            burntP.Play();
-            cooked = 0;
-            finished = false;
-            Debug.Log("Burnt");
+            if (!changing)
+            {
+                StartCoroutine(changeColour());
+            }
+            if (cooked < 0.6 && cooked > 0.3 && !finished)
+            {
+                cooked = 0.4f;
+                cookedP.Play();
+                finished = true;
+                aS.PlayOneShot(Resources.Load<AudioClip>("Audio/Done"));
+                //Debug.Log("Cooked");
+            }
+            if (cooked < 0.3 && finished)
+            {
+                burntP.Play();
+                cooked = 0;
+                finished = false;
+                aS.PlayOneShot(Resources.Load<AudioClip>("Audio/Char"));
+                //Debug.Log("Burnt");
+            }
+            if (fix == true)
+            {
+                fix = false;
+                //Debug.Log("PlayingFix: " + Resources.Load<AudioClip>("Audio/Fix"));
+                aS.PlayOneShot(Resources.Load<AudioClip>("Audio/Fix"));
+            }
         }
+    }
+
+    IEnumerator changeColour()
+    {
+        changing = true;
+        Color newCol = Color.black;
+        if(rend.color.r != cooked)
+        {
+            newCol.r = rend.color.r + (0.01f * Mathf.Sign(cooked - rend.color.r));
+        }
+        if (rend.color.g != (3 * cooked / 4))
+        {
+            newCol.g = rend.color.g + (0.01f * Mathf.Sign((3 * cooked / 4) - rend.color.g));
+        }
+        if (rend.color.b != (cooked / 2))
+        {
+            newCol.b = rend.color.b + (0.01f * Mathf.Sign((cooked / 2) - rend.color.b));
+        }
+        rend.color = newCol;
+        Vector3 targetScale = startScale * (0.6f + (0.4f * cooked));
+        if(targetScale != transform.localScale)
+        {
+            float newF = transform.localScale.x + 0.01f * (targetScale.x - transform.localScale.x);
+            transform.localScale = new Vector3(newF, newF, newF);
+        }
+        //rend.color = new Color(cooked, 3 * cooked / 4, cooked / 2, 1);
+        yield return new WaitForFixedUpdate();
+        changing = false;
     }
 
     private void FixedUpdate()
@@ -69,24 +135,37 @@ public class DryUp : MonoBehaviour
             {
                 cooked -= 0.01f * (0.2f - distance);
                 cookP.Play();
+                cooking = true;
                 //Debug.Log("Cooked: " + cooked);
             }
             else
             {
+                cooking = false;
                 cookP.Stop();
             }
         }
         else
         {
+            cooking = false;
             cookP.Stop();
         }
-        if (cooked < 0.5 && Input.GetButton("Interact") && PlayerPrefs.GetInt("Minigame") == 1)
+        if (cooked < 0.3 && Input.GetButton("Interact") && PlayerPrefs.GetInt("Minigame") == 1)
         {
+            fix = true;
             fixP.Play();
             cookedP.Stop();
             burntP.Stop();
             cooked = 1;
         }
+        if (cooking == true && lastCooked == false)
+        {
+            aS.Play();
+        }
+        else if (cooking == false && lastCooked == true)
+        {
+            aS.Stop();
+        }
+        lastCooked = cooking;
     }
 
     // Update is called once per frame

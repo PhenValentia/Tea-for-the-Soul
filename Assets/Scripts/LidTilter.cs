@@ -30,7 +30,7 @@ public class LidTilter : MonoBehaviour
             lid.transform.rotation = Quaternion.Euler(0, 0, lid.transform.rotation.eulerAngles.z - 1);
             while (lid.transform.rotation.eulerAngles.z > 330)
             {
-                Debug.Log("rotation: " + lid.transform.rotation.eulerAngles.z);
+                //Debug.Log("rotation: " + lid.transform.rotation.eulerAngles.z);
                 lid.transform.rotation = Quaternion.Euler(0, 0, lid.transform.rotation.eulerAngles.z - 1);
                 yield return new WaitForFixedUpdate();
             }

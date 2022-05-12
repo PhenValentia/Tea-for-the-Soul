@@ -1643,6 +1643,7 @@ m_ResolvedPackages:
     - 0.1.21-preview
     - 1.0.0
     - 2.0.0
+    - 2.0.1
     compatible:
     - 0.1.4-preview
     - 0.1.5-preview
@@ -1663,6 +1664,7 @@ m_ResolvedPackages:
     - 0.1.21-preview
     - 1.0.0
     - 2.0.0
+    - 2.0.1
     verified: 
   dependencies:
   - name: com.unity.sysroot
@@ -1807,6 +1809,7 @@ m_ResolvedPackages:
     - 1.7.5
     - 1.7.6
     - 1.7.7
+    - 1.7.8
     - 1.8.0-pre.1
     compatible:
     - 1.6.1
@@ -1816,6 +1819,7 @@ m_ResolvedPackages:
     - 1.7.5
     - 1.7.6
     - 1.7.7
+    - 1.7.8
     verified: 1.6.1
   dependencies:
   - name: com.unity.ugui

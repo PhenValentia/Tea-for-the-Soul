@@ -52,7 +52,7 @@ public class EnvManager : MonoBehaviour
         if (PlayerPrefs.GetInt("StoryPoint") == 6 && !dM.runningBubble)
         {
             PlayerPrefs.SetInt("StoryPoint", 7);
-            cT.endLevel("HouseInterior", GameObject.Find("Lapis").transform);
+            cT.endLevel("HouseExterior", GameObject.Find("Lapis").transform);
         }
         if (PlayerPrefs.GetInt("StoryPoint") == 7 && SceneManager.GetActiveScene().name == "HouseExterior")
         {
@@ -116,16 +116,25 @@ public class EnvManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("StoryPoint") == 22)
         {
-            PlayerPrefs.SetInt("StoryPoint", 23);
             cC.setSmoothCamera(5f, new Vector3(0, 0, -10));
+            PlayerPrefs.SetInt("StoryPoint", 23);
             GameObject.Find("Lapis").GetComponent<FadeIn>().fadeIn();
             GameObject.Find("Table").GetComponent<FadeIn>().fadeIn();
+        }
+        if (PlayerPrefs.GetInt("StoryPoint") == 23 && !cC.changing)
+        {
+            PlayerPrefs.SetInt("StoryPoint", 24);
             dM.startSpeechBubbles("D7");
         }
-        if (PlayerPrefs.GetInt("StoryPoint") == 24)
+        if (PlayerPrefs.GetInt("StoryPoint") == 25)
         {
-            PlayerPrefs.SetInt("StoryPoint", 25);
+            PlayerPrefs.SetInt("StoryPoint", 26);
             f.fadeIn();
+        }
+        if (PlayerPrefs.GetInt("StoryPoint") == 27)
+        {
+            PlayerPrefs.SetInt("StoryPoint", 28);
+            f.fadeOut();
         }
 
         if (PlayerPrefs.GetInt("StoryPoint") == 100 && !dM.runningBubble)
