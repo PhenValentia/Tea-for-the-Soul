@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,28 +53,48 @@
     <UnityVersion>2021.1.18f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EnvManager.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\SparksController.cs" />
+    <Compile Include="Assets\Scripts\FlowerGather.cs" />
+    <Compile Include="Assets\Scripts\EstablishPrefs.cs" />
+    <Compile Include="Assets\Scripts\MainMeun.cs" />
+    <Compile Include="Assets\Scripts\LidTilter.cs" />
+    <Compile Include="Assets\Scripts\DetectDryUp.cs" />
     <Compile Include="Assets\Scripts\DropletController.cs" />
     <Compile Include="Assets\Scripts\CutoutMask.cs" />
+    <Compile Include="Assets\Scripts\DetectWater.cs" />
+    <Compile Include="Assets\Scripts\FadeIn.cs" />
     <Compile Include="Assets\Scripts\MovementController.cs" />
     <Compile Include="Assets\Scripts\FadeScript.cs" />
+    <Compile Include="Assets\Scripts\Flower.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\DropdownRelayScript.cs" />
+    <Compile Include="Assets\Scripts\DryUp.cs" />
     <Compile Include="Assets\Scripts\DropdownScript.cs" />
+    <Compile Include="Assets\Scripts\SetIcon.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\WandController.cs" />
     <Compile Include="Assets\Scripts\CircleTransition.cs" />
     <Compile Include="Assets\Scripts\HandController.cs" />
     <Compile Include="Assets\Scripts\SnapToTarget.cs" />
+    <Compile Include="Assets\Scripts\StepSound.cs" />
+    <Compile Include="Assets\Scripts\MusicPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Resources\Dialogue\F1.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Resources\Dialogue\F3.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Resources\Dialogue\D1.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Resources\Dialogue\D2.txt" />
+    <None Include="Assets\Resources\Dialogue\F2.txt" />
+    <None Include="Assets\Resources\Dialogue\D5.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -84,11 +104,15 @@
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Resources\Dialogue\D6.txt" />
+    <None Include="Assets\Resources\Dialogue\D3.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Resources\Dialogue\D7.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Resources\Dialogue\Test2.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Resources\Dialogue\D4.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Resources\Dialogue\Test.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_Sprite.shader" />
