@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7442158873375902822, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7816640011673304998, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
       propertyPath: m_RootOrder
@@ -169,6 +169,18 @@ PrefabInstance:
     - target: {fileID: 7816640011673305000, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
       propertyPath: m_Name
       value: Interior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7816640011673305001, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
+      propertyPath: m_Size.x
+      value: 73.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7816640011673305001, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
+      propertyPath: m_Size.y
+      value: 26.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7816640011673305001, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2551214846919246450, guid: 1992fd2706b9a184aa17dbac4c786170, type: 3}
