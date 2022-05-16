@@ -34,4 +34,22 @@ public class DoorScript : MonoBehaviour
             ct.endLevel(nextLevel, GameObject.Find("Lapis").transform);
         }
     }
-}
+/*
+    public GameObject prompt;
+    private string reactTag = "Player";
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ()
+            return;
+        if (collision.tag == reactTag)
+            prompt.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == reactTag)
+            prompt.SetActive(false);
+    }
+*/
+    }
