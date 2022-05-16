@@ -19,4 +19,9 @@ public class MainMeun : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
