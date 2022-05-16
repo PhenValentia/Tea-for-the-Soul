@@ -371,6 +371,7 @@
 "Assets/Scripts/MainMeun.cs"
 "Assets/Scripts/MovementController.cs"
 "Assets/Scripts/MusicPlayer.cs"
+"Assets/Scripts/PauseMenu.cs"
 "Assets/Scripts/SetIcon.cs"
 "Assets/Scripts/SnapToTarget.cs"
 "Assets/Scripts/SparksController.cs"
