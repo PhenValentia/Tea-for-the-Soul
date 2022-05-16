@@ -24,5 +24,4 @@ public class MainMeun : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
 }
