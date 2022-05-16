@@ -95,7 +95,7 @@
 [e][Lapis]Thanks a lot, Antoine!
 [e][Antoine]Thanks to you!
 [e][Antoine]I better get going now. My vegetable patch needs to be watered.
-[DoorClose][Lapis]See you soon
+[DoorClose][Lapis][27]See you soon.
 [e][Lapis]Hmmm…
 [e][Lapis]There he goes back home.
 [e][Lapis]What a sweet old man.

@@ -11,7 +11,7 @@ public class TutorialText : MonoBehaviour
     void Start()
     {
         cg = GetComponent<CanvasGroup>();
-        if(SceneManager.GetActiveScene().name == "HouseExterior" && PlayerPrefs.GetInt("StoryPoint") == 8)
+        if(SceneManager.GetActiveScene().name == "HouseExterior" && PlayerPrefs.GetInt("StoryPoint") == 7)
         {
             cg.alpha = 1;
             StartCoroutine(fadeTutorial());
@@ -25,12 +25,20 @@ public class TutorialText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*if (SceneManager.GetActiveScene().name == "HouseExterior" && PlayerPrefs.GetInt("StoryPoint") == 8)
+        {
+            cg.alpha = 1;
+            StartCoroutine(fadeTutorial());
+        }
+        else
+        {
+            cg.alpha = 0;
+        }*/
     }
 
     IEnumerator fadeTutorial()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(25);
         while (cg.alpha > 0)
         {
             cg.alpha -= 0.01f;

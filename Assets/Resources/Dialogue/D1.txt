@@ -1,5 +1,5 @@
 [e][Lapis]This teapot goes over here in this cupboard…
-[e][Lapis]...And that’s all! Nothing else left in the boxes to unpack
+[e][Lapis]...And that’s all! Nothing else left in the boxes to unpack.
 [e][Lapis]Finally! After all of that work, I’ve finally finished moving over!
 [e][Lapis]All of those years training to become a fortune teller…
 [e][Lapis]They’re finally paying off!
@@ -13,7 +13,7 @@
 [e][Lapis]I hope the spell I casted last night takes effect…
 [e][Lapis]Sometimes it’s hard to know what people are going through.
 [e][Lapis]But my spell will help me out in my task naturally.
-[e][Lapis]I can already feel that I’m gonna help so many people
+[e][Lapis]I can already feel that I’m gonna help so many people.
 [e][Lapis]I can’t wait!
-[Knock][Lapis]Oh! Seems like someone else can’t wait as well
-[DoorOpen][Lapis][1]"Come in!" 
+[Knock][Lapis]Oh! Seems like someone else can’t wait as well.
+[DoorOpen][Lapis][1]Come in! 

@@ -35,15 +35,15 @@ public class DialogueManager : MonoBehaviour
         currentLine = 0;
 
         eM = GameObject.Find("EnvironmentManager").GetComponent<EnvManager>();
-        pMove = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MovementController>();
-        dialogueArea = GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<CanvasGroup>();
-        bubbleArea = GameObject.FindGameObjectWithTag("DialogueBubble").GetComponent<CanvasGroup>();
-        bubbleText = GameObject.FindGameObjectWithTag("DialogueBubbleText").GetComponent<TextMeshProUGUI>();
+        pMove = GameObject.Find("Lapis").GetComponent<MovementController>();
+        dialogueArea = GameObject.Find("Dialogue Panel").GetComponent<CanvasGroup>();
+        bubbleArea = GameObject.Find("Speech Bubble").GetComponent<CanvasGroup>();
+        bubbleText = GameObject.Find("Bubble Text").GetComponent<TextMeshProUGUI>();
         dialogueArea.alpha = 0;
         bubbleArea.alpha = 0;
-        headBox = GameObject.FindGameObjectWithTag("DialogueHeadBox").GetComponent<Image>();
-        dialogueText = GameObject.FindGameObjectWithTag("DialogueTextBox").GetComponent<TextMeshProUGUI>();
-        source = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
+        headBox = GameObject.Find("Head").GetComponent<Image>();
+        dialogueText = GameObject.Find("DialogueTextBox").GetComponent<TextMeshProUGUI>();
+        source = GameObject.Find("Main Camera").GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -108,6 +108,7 @@ public class DialogueManager : MonoBehaviour
         if (Application.dataPath + "/Resources/Dialogue/" + dialogueName + ".txt" != null)
         {
             var sr = new StreamReader(Application.dataPath + "/Resources/Dialogue/" + dialogueName + ".txt");
+            //var sr = new StreamReader(Resources.Load("MyTexts/text") as TextAsset);
             var fileContents = sr.ReadToEnd();
             sr.Close();
 
@@ -116,6 +117,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            dialogueText.text = "Dialogue Not Found: " + dialogueName;
             Debug.LogError("Dialogue Not Found: " + dialogueName);
         }
 

@@ -16,7 +16,7 @@ public class DialogueTrigger : MonoBehaviour
     void Start()
     {
         col = GetComponent<Collider2D>();
-        dM = GameObject.FindGameObjectsWithTag("DialoguePanel")[0].GetComponent<DialogueManager>();
+        dM = GameObject.Find("Dialogue Panel").GetComponent<DialogueManager>();
     }
 
     // Update is called once per frame

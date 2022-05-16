@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MovementScenes/HouseExterior.unity
     guid: 37a3e9bf38a81174f94a867350b70b21
   - enabled: 1
-    path: Assets/Scenes/MovementScenes/Forest.unity
-    guid: db22ce2de081d434d833d3e057e92b18
-  - enabled: 1
     path: Assets/Scenes/CutScenes/Cutscene2.unity
     guid: b0d934c27a34d094faa6650c0065d364
   - enabled: 1

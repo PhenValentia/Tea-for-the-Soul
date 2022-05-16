@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MovementController : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class MovementController : MonoBehaviour
     Animator anim;
     GameObject playerModel;
     float pmScale;
+    float targetScale;
+
+    CanvasGroup interact;
+    IEnumerator lastCo;
+    bool fading = false;
 
     [SerializeField]
     bool allowMovement = true;
@@ -28,6 +34,8 @@ public class MovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        interact = GameObject.Find("ButtonPrompt").GetComponent<CanvasGroup>();
+        interact.alpha = 0;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         anim = GetComponentInChildren<Animator>();
@@ -36,11 +44,12 @@ public class MovementController : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "HouseInterior" || SceneManager.GetActiveScene().name == "HouseExterior")
         {
             playerModel.transform.localScale = new Vector3(-pmScale, pmScale, pmScale);
+            targetScale = -pmScale;
         }
         if (SceneManager.GetActiveScene().name == "HouseInterior" && PlayerPrefs.GetInt("StoryPoint") == 7)
         {
             playerModel.transform.localScale = new Vector3(pmScale, pmScale, pmScale);
-
+            targetScale = pmScale;
         }
         ignorePlayerMask = ~(1 << 6);
     }
@@ -55,14 +64,46 @@ public class MovementController : MonoBehaviour
             anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
             if(rb.velocity.x > 0)
             {
+                targetScale = -pmScale;
                 playerModel.transform.localScale = new Vector3(-pmScale, pmScale, pmScale);
                 playerModel.transform.localPosition = new Vector3(0.4f ,playerModel.transform.localPosition.y, playerModel.transform.localPosition.z);
             }
             else if (rb.velocity.x < 0)
             {
+                targetScale = pmScale;
                 playerModel.transform.localScale = new Vector3(pmScale, pmScale, pmScale);
                 playerModel.transform.localPosition = new Vector3(-0.4f, playerModel.transform.localPosition.y, playerModel.transform.localPosition.z);
             }
+
+            /*if(playerModel.transform.localScale.x < targetScale)
+            {
+                if (playerModel.transform.localScale.x > pmScale / 2)
+                {
+                    Debug.Log("FlipA");
+                    playerModel.transform.localScale = new Vector3(-playerModel.transform.localScale.x, pmScale, pmScale);
+                    playerModel.transform.localPosition = new Vector3(-0.4f, playerModel.transform.localPosition.y, playerModel.transform.localPosition.z);
+                }
+                else
+                {
+                    Debug.Log("ChangeA");
+                    playerModel.transform.localScale = new Vector3(playerModel.transform.localScale.x + (Mathf.Abs(targetScale - playerModel.transform.localScale.x)), pmScale, pmScale);
+                }
+            }
+            else if (playerModel.transform.localScale.x > targetScale)
+            {
+                if (playerModel.transform.localScale.x < -pmScale / 2)
+                {
+                    Debug.Log("FlipB");
+                    playerModel.transform.localScale = new Vector3(-playerModel.transform.localScale.x, pmScale, pmScale);
+                    playerModel.transform.localPosition = new Vector3(0.4f, playerModel.transform.localPosition.y, playerModel.transform.localPosition.z);
+                }
+                else
+                {
+                    Debug.Log("ChangeB");
+                    playerModel.transform.localScale = new Vector3(playerModel.transform.localScale.x - (Mathf.Abs(targetScale - playerModel.transform.localScale.x)), pmScale, pmScale);
+                }
+            }*/
+
             if (SceneManager.GetActiveScene().name == "Cutscene1")
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -142,5 +183,59 @@ public class MovementController : MonoBehaviour
     public void toggleMovement()
     {
         allowMovement = !allowMovement;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Interactable")
+        {
+            if(SceneManager.GetActiveScene().name == "HouseInterior")
+            {
+                //interact.GetComponent<RectTransform>().anchorMin = new Vector2(0.1f, 0.55f);
+                //interact.GetComponent<RectTransform>().anchorMax = new Vector2(0.2f, 0.65f);
+                //interact.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+            }
+            if (fading)
+            {
+                StopCoroutine(lastCo);
+            }
+            fading = true;
+            lastCo = fadeIn();
+            StartCoroutine(lastCo);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactable")
+        {
+            if (fading)
+            {
+                StopCoroutine(lastCo);
+            }
+            fading = true;
+            lastCo = fadeOut();
+            StartCoroutine(lastCo);
+        }
+    }
+
+    IEnumerator fadeIn()
+    {
+        while(interact.alpha < 1 && fading)
+        {
+            interact.alpha += 0.05f;
+            yield return new WaitForFixedUpdate();
+        }
+        fading = false;
+    }
+
+    IEnumerator fadeOut()
+    {
+        while (interact.alpha > 0 && fading)
+        {
+            interact.alpha -= 0.05f;
+            yield return new WaitForFixedUpdate();
+        }
+        fading = false;
     }
 }

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 908677929937719391}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -12.77, y: 3.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1481,8 +1481,9 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -2181855040368745350, guid: 6ddb4d7611b81244585069b944f9e301, type: 3}
-    - sprite: {fileID: -7790693689415295138, guid: 6ddb4d7611b81244585069b944f9e301, type: 3}
+    - sprite: {fileID: 8972397339734752680, guid: a6423c580c514c4419f71ab4b6078518, type: 3}
+    - sprite: {fileID: -6535891975566890610, guid: a6423c580c514c4419f71ab4b6078518, type: 3}
+    - sprite: {fileID: 2066884186599279519, guid: a6423c580c514c4419f71ab4b6078518, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4779,8 +4780,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 855529339
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

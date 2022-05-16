@@ -1,8 +1,8 @@
 [e][Antoine]Good morning miss! Came here to congratulate ya for moving over!
 [e][Lapis]Thank you! That’s lovely of you!
-[e][Lapis]My name is Lapis. It’s a pleasure to meet you
+[e][Lapis]My name is Lapis. It’s a pleasure to meet you.
 [e][Antoine]The name’s Antoine, nice to meet ya too.
-[e][Antoine]I’ve been living here for as long as I can remember
+[e][Antoine]I’ve been living here for as long as I can remember.
 [e][Antoine]So I have an 'AnTON' of things to show you over if you want to.
 [Laugh][Antoine]Hahahahahahahaha!
 [Laugh][Lapis]Haha! Thanks for the offer! You’re very kind.
@@ -12,27 +12,27 @@
 [e][Lapis]Oh, let’s just say that I’m great at helping people over tea.
 [Question][Antoine]Oh, a psychologist?
 [e][Lapis]...More or less.
-[e][Lapis]But I deal with more… esoteric methods
+[e][Lapis]But I deal with more… esoteric methods.
 [Question][Antoine]Oh, like what?
-[e][Lapis]Oh, just the arcane and nature
-[Laugh][Antoine]Oh! Didn’t know you would deal with that kinda stuff
-[e][Antoine]I guess that maybe if you specialize in this kinda stuff you can help me out
-[e][Antoine]Because I just found this morning these weird looking cards at home
-[e][Antoine]And I for sure didn’t pick them up
-[Idea][Lapis]Oh!
+[e][Lapis]Oh, just the arcane and nature.
+[Laugh][Antoine]Oh! Didn’t know you would deal with that kinda stuff.
+[e][Antoine]I guess that maybe if you specialize in this kinda stuff you can help me out.
+[e][Antoine]Because I just found this morning these weird looking cards at home.
+[e][Antoine]And I for sure didn’t pick them up.
+[Thinking][Lapis]Oh!
 [e][Antoine]Oh, you know?
 [Thinking][Lapis]Tarot cards!
-[e][Lapis]Those are the ones for The Hermit, Star and Strength
+[e][Lapis]Those are the ones for The Hermit, Star and Strength.
 [e][Lapis]My spell took effect!
 [e][Lapis]Yes, I think I know!
-[e][Antoine]Really? Oh, gee, that’s a relief
-[e][Lapis]However, Antoine, right now I’m a bit busy
+[e][Antoine]Really? Oh, gee, that’s a relief.
+[e][Lapis]However, Antoine, right now I’m a bit busy.
 [e][Antoine]Makes sense. With you moving over… your schedule must be packed!
 [Laughing][Antoine]Hahahaha!
 [Laughing][Lapis]Haha! If you want to, we can meet later over some tea to talk about it.
 [e][Antoine]Oh, I wouldn’t want to monopolize more of your time.
 [e][Lapis]Don’t worry at all! It’s my pleasure!
-[e][Antoine]Well, these are just some weird cards
+[e][Antoine]Well, these are just some weird cards.
 [e][Lapis]Not at all! Let show you over tea. Please.
 [e][Antoine]... If you insist.
 [e][Lapis]Perfect! Would you want to meet in like… two hours?

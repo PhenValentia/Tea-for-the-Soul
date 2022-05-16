@@ -14,7 +14,7 @@ public class EnvManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dM = GameObject.FindGameObjectsWithTag("DialoguePanel")[0].GetComponent<DialogueManager>();
+        dM = GameObject.Find("Dialogue Panel").GetComponent<DialogueManager>();
         cT = GameObject.Find("CircleWipeMask").GetComponent<CircleTransition>();
         ant = GameObject.Find("Antoine");
         cC = Camera.main.GetComponent<CameraController>();
@@ -31,8 +31,8 @@ public class EnvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("StoryPoint: " + PlayerPrefs.GetInt("StoryPoint"));
-        Debug.Log("Minigame: " + PlayerPrefs.GetInt("Minigame"));
+        //Debug.Log("StoryPoint: " + PlayerPrefs.GetInt("StoryPoint"));
+        //Debug.Log("Minigame: " + PlayerPrefs.GetInt("Minigame"));
         if (PlayerPrefs.GetInt("StoryPoint") == 1)
         {
             f.fadeIn();

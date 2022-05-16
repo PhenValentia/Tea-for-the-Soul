@@ -8,6 +8,7 @@ public class Flower : MonoBehaviour
     int flowerNum = 0;
     FlowerGather fg;
     bool collected = false;
+    ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class Flower : MonoBehaviour
         }
         //Debug.Log(GameObject.Find("FlowerIcon" + flowerNum).GetComponent<FlowerGather>());
         fg = GameObject.Find("FlowerIcon" + flowerNum).GetComponent<FlowerGather>();
+        ps = GameObject.Find("Plant" + flowerNum + "Stem").GetComponentInChildren<ParticleSystem>();
+        ps.Stop();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -30,6 +33,7 @@ public class Flower : MonoBehaviour
             Debug.Log("Collected");
             fg.collectFlower(transform.position);
             Destroy(this.gameObject);
+            ps.Play();
         }
     }
 }

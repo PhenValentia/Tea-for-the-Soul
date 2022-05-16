@@ -17,7 +17,7 @@ public class ExplainTextManager : MonoBehaviour
         cg = GetComponent<CanvasGroup>();
         text = GameObject.Find("ExplainText").GetComponent<TextMeshProUGUI>();
         step = 0;
-        Debug.Log("T: "+text.text);
+        //Debug.Log("T: "+text.text);
     }
 
     // Update is called once per frame
